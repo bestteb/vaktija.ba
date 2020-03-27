@@ -23,6 +23,7 @@ import Counter from "./Counter";
 import CurrentDate from "./CurrentDate";
 import Location from "./Location";
 import Stores from "./Stores";
+import Ads from "./Ads";
 import Locations from "./Locations";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -329,6 +330,8 @@ function Daily({ locationProps = 77, root }) {
             <br />
             <br />
             <Stores theme={theme} />
+            <br />
+            <Ads theme={theme} />
           </Col>
         </Row>
       </Grid>
