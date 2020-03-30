@@ -1,0 +1,90 @@
+table.light {
+  color: #4a4a4a;
+}
+
+table.dark {
+  color: #ffffff;
+}
+
+h3.monthly {
+  color: #4a4a4a;
+  text-transform: capitalize;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h3.monthly-light {
+  color: #4a4a4a;
+  text-transform: capitalize;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h3.monthly-dark {
+  color: #ffffff;
+  text-transform: capitalize;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+th.monthly.text-center {
+  font-size: large;
+  /* text-transform: lowercase; */
+}
+
+.monthly-gregorian {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.monthly-gregorian.underline {
+  text-decoration: underline solid #9a9d14;
+}
+
+.monthly-hijri {
+  font-size: small;
+  color: #9a9d14;
+}
+
+.monthly-hijri.pair-light {
+  /* text-decoration: underline solid #9a9d14; */
+  color: #4a4a4a;
+  /* text-transform: capitalize; */
+}
+.monthly-hijri.pair-dark {
+  /* text-decoration: underline solid #9a9d14; */
+  color: #ffffff;
+  /* text-transform: capitalize; */
+}
+
+.monthly.text-center {
+  vertical-align: middle;
+  font-size: large;
+}
+
+.monthly.day {
+  font-size: normal;
+}
+
+th {
+  /* background: white;
+  position: sticky;
+  top: 0; */
+}
+.glyphicon.glyphicon-chevron-left.dark,
+.glyphicon.glyphicon-chevron-right.dark {
+  color: #ffffff;
+}
+
+.glyphicon.glyphicon-chevron-left.light,
+.glyphicon.glyphicon-chevron-right.light {
+  color: #4a4a4a;
+}
+
+.glyphicon.glyphicon-chevron-left,
+.glyphicon.glyphicon-chevron-right {
+  font-size: x-large;
+  font-weight: 100;
+  margin-top: 25px;
+  cursor: pointer;
+}

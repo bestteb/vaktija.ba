@@ -18,7 +18,7 @@ import {
   locationsShort,
   weights
 } from "../data/vaktija.json";
-import { daily } from "../api/vaktija/index.mjs";
+import { daily, monthly } from "../api/vaktija/index.mjs";
 import IconDark from "../icons/IconDark.js";
 import IconLight from "../icons/IconLight.js";
 import RelativeTime from "./RelativeTime";
@@ -28,6 +28,7 @@ import CurrentDate from "./CurrentDate";
 import Location from "./Location";
 import Stores from "./Stores";
 import Locations from "./Locations";
+import Monthly from "./Monthly";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -326,6 +327,7 @@ function Daily({ locationProps = 77, root }) {
         weights={weights}
       />
       <br />
+      <Monthly theme={theme} location={locationProps} monthly={monthly} />
       <Footer theme={theme} toggleTheme={toggleTheme} />
     </>
   );

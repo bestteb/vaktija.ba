@@ -1,12 +1,13 @@
 import { locations } from "./locations";
 import { daily } from "./daily";
-// import { monthly } from './monthly';
+import { monthly } from "./monthly";
 // import { yearly } from './yearly';
 
 const vaktija = {
   locations,
-  daily
+  daily,
+  monthly
 };
 
-export { locations, daily };
+export { locations, daily, monthly };
 export default vaktija;
