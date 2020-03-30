@@ -7,6 +7,7 @@ import "moment/locale/bs";
 import Cookies from "universal-cookie";
 import { daily } from "../api/vaktija/index.mjs";
 import { locations, vakatNames } from "../data/vaktija.json";
+import "./Mobile.css";
 
 const cookies = new Cookies();
 const iMonths = [
@@ -93,17 +94,10 @@ function Mobile() {
 
   return (
     <div>
-      <table
-        style={{
-          marginTop: "2px",
-          marginBottom: "2px",
-          marginLeft: "auto",
-          marginRight: "auto"
-        }}
-      >
+      <table>
         <tbody>
           <tr>
-            <th style={{ textAlign: "center", fontSize: "large" }} colSpan={2}>
+            <th className="location" colSpan={2}>
               {locations[location]}
             </th>
           </tr>
@@ -119,7 +113,7 @@ function Mobile() {
             </tr>
           ))}
           <tr>
-            <td style={{ textAlign: "center" }} colSpan={2}>
+            <td className="select" colSpan={2}>
               <select onChange={e => changeLocation(e)} defaultValue={location}>
                 {locations.map((l, index) => (
                   <option key={index} value={index}>
@@ -130,8 +124,10 @@ function Mobile() {
             </td>
           </tr>
           <tr>
-            <td style={{ textAlign: "center" }} colSpan={2}>
-              <a href="https://vaktija.ba">vaktija.ba</a>
+            <td className="link" colSpan={2}>
+              <a className="link" href="https://vaktija.ba">
+                vaktija.ba
+              </a>
             </td>
           </tr>
         </tbody>
