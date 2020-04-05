@@ -38,7 +38,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import ReactGA from "react-ga";
 import "./Daily.css";
 
-ReactGA.initialize("UA-9142566-1");
+ReactGA.initialize(process.env.REACT_APP_GA);
 library.add(fab, fas);
 
 moment.updateLocale("bs", {
@@ -187,7 +187,9 @@ function Daily({ locationProps = 77, root }) {
           .toDate()
       });
     }
+    ReactGA.set({ title: `${locations[locationState]} · Vaktija` })
     ReactGA.pageview(window.location.pathname + window.location.search);
+    // eslint-disable-next-line
   }, [locationProps, root]);
 
   const handleClick = event => {
@@ -219,9 +221,9 @@ function Daily({ locationProps = 77, root }) {
           name="description"
           content={`Vaktija za ${locationsDative[locationState]}, ${date[0]} ${
             date[1]
-          } / ${date[2]}${vakatNames.map(
-            (vakatName, index) => ` ${vakatName} ${vaktija[index]}`
-          )}. Preuzmite oficijelne Android, iOS (iPhone, iPad) i Windows mobilne aplikacije, namaz, salat, džuma, sehur, ramazan, iftar, teravija, takvim, bosna i hercegovina, sandžak`}
+            } / ${date[2]}${vakatNames.map(
+              (vakatName, index) => ` ${vakatName} ${vaktija[index]}`
+            )}. Preuzmite oficijelne Android, iOS (iPhone, iPad) i Windows mobilne aplikacije, namaz, salat, džuma, sehur, ramazan, iftar, teravija, takvim, bosna i hercegovina, sandžak`}
         />
         <meta
           name="theme-color"
@@ -250,13 +252,13 @@ function Daily({ locationProps = 77, root }) {
                   alt="vaktija.ba"
                 />
               ) : (
-                <IconLight
-                  height="32"
-                  width="32"
-                  className="brand"
-                  alt="vaktija.ba"
-                />
-              )}
+                  <IconLight
+                    height="32"
+                    width="32"
+                    className="brand"
+                    alt="vaktija.ba"
+                  />
+                )}
             </Link>
           </Col>
           <Col className="text-right" xs={6} sm={6} md={6} lg={6}>
