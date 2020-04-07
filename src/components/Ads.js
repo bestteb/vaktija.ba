@@ -11,13 +11,15 @@ function Ads({ theme }) {
       >
         <Ikre style={{ marginTop: 20 }} alt="donate.ikre.info" />
         {theme === "dark" && (
-          <p style={{ color: "#fff", fontWeight: "bold" }}>
+          <p style={{ color: "#fff", fontWeight: "bold", fontSize: "0.8em" }}>
             Bürgerforum Ikre e.V. München
           </p>
         )}
 
         {theme === "light" && (
-          <p style={{ color: "#19194b", fontWeight: "bold" }}>
+          <p
+            style={{ color: "#19194b", fontWeight: "bold", fontSize: "0.8em" }}
+          >
             Bürgerforum Ikre e.V. München
           </p>
         )}
