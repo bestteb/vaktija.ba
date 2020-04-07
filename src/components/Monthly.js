@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Grid, Col, Row, Glyphicon } from "react-bootstrap";
+import { Container, Col, Row, Table } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import moment from "moment";
 import momentHijri from "moment-hijri";
 import "moment-timezone";
@@ -14,15 +15,22 @@ function Monthly({ theme, monthly, location }) {
   const monthlyVaktija = monthly(location, year, month);
 
   return (
-    <Grid>
+    <Container>
       <Row>
-        <Col className="text-center" sm={12} md={12} lg={10} lgOffset={1}>
+        <Col
+          className="text-center"
+          sm={12}
+          md={12}
+          lg={{ span: 10, offset: 1 }}
+        >
+          <br />
           <Row>
             <Col className="text-right" lg={3}>
               {month > 1 ? (
-                <Glyphicon
+                <FontAwesomeIcon
                   className={theme}
-                  glyph="chevron-left"
+                  icon={["fas", "chevron-left"]}
+                  size="1x"
                   onClick={() => {
                     console.log(month);
                     if (month > 1) {
@@ -40,9 +48,10 @@ function Monthly({ theme, monthly, location }) {
             </Col>
             <Col className="text-left" lg={3}>
               {month < 12 ? (
-                <Glyphicon
+                <FontAwesomeIcon
                   className={theme}
-                  glyph="chevron-right"
+                  icon={["fas", "chevron-right"]}
+                  size="1x"
                   onClick={() => {
                     console.log(month);
                     if (month < 12) {
@@ -56,11 +65,7 @@ function Monthly({ theme, monthly, location }) {
 
           <br />
           <br />
-          <table
-            id="vaktija-table"
-            // className={`table table-hover table-responsive ${theme}`}
-            className={`table table-responsive ${theme}`}
-          >
+          <Table responsive className={`${theme}`}>
             <thead>
               <tr>
                 <th className="monthly text-center" colSpan={2}>
@@ -74,7 +79,7 @@ function Monthly({ theme, monthly, location }) {
                 <th className="monthly text-center">Jacija</th>
               </tr>
             </thead>
-            <tbody id="vaktija-month">
+            <tbody>
               {monthlyVaktija.days.map((d, index) => (
                 <tr key={index}>
                   <td className="monthly text-right">
@@ -140,10 +145,10 @@ function Monthly({ theme, monthly, location }) {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </Table>
         </Col>
       </Row>
-    </Grid>
+    </Container>
   );
 }
 

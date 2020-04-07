@@ -71,20 +71,19 @@ th {
   position: sticky;
   top: 0; */
 }
-.glyphicon.glyphicon-chevron-left.dark,
-.glyphicon.glyphicon-chevron-right.dark {
-  color: #ffffff;
+
+.svg-inline--fa.fa-chevron-left.fa-w-10.fa-1x,
+.svg-inline--fa.fa-chevron-right.fa-w-10.fa-1x {
+  cursor: pointer;
+  margin-top: 25px;
 }
 
-.glyphicon.glyphicon-chevron-left.light,
-.glyphicon.glyphicon-chevron-right.light {
+.svg-inline--fa.fa-chevron-left.fa-w-10.fa-1x.light,
+.svg-inline--fa.fa-chevron-right.fa-w-10.fa-1x.light {
   color: #4a4a4a;
 }
 
-.glyphicon.glyphicon-chevron-left,
-.glyphicon.glyphicon-chevron-right {
-  font-size: x-large;
-  font-weight: 100;
-  margin-top: 25px;
-  cursor: pointer;
+.svg-inline--fa.fa-chevron-left.fa-w-10.fa-1x.dark,
+.svg-inline--fa.fa-chevron-right.fa-w-10.fa-1x.dark {
+  color: #ffffff;
 }
