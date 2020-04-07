@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Row, Col, PageHeader } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import slugify from "slugify";
 import { locations } from "./data/vaktija.json";
@@ -33,15 +33,15 @@ function App() {
           <Route
             path="*"
             render={() => (
-              <Grid>
+              <Container>
                 <Row>
                   <Col lg={12}>
-                    <PageHeader>
+                    <h1>
                       Not Found <small>404</small>
-                    </PageHeader>
+                    </h1>
                   </Col>
                 </Row>
-              </Grid>
+              </Container>
             )}
           />
         </Switch>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import moment from "moment";
 import momentHijri from "moment-hijri";
 import "moment-timezone";
@@ -94,16 +94,9 @@ function Daily({ locationProps = 77, root }) {
   const [nextVakatPosition, setNextVakatPosition] = useState(nextVakat());
   const { toggleTheme, initTheme, automaticTheme, theme } = context;
   const [date, setDate] = useState([
-    moment()
-      .tz("Europe/Sarajevo")
-      .format("ddd, D. MMMM"),
-    moment()
-      .tz("Europe/Sarajevo")
-      .format("YYYY"),
-    momentHijri()
-      .tz("Europe/Sarajevo")
-      .format("iD. iMMMM iYYYY")
-      .toLowerCase()
+    moment().tz("Europe/Sarajevo").format("ddd, D. MMMM"),
+    moment().tz("Europe/Sarajevo").format("YYYY"),
+    momentHijri().tz("Europe/Sarajevo").format("iD. iMMMM iYYYY").toLowerCase()
   ]);
 
   const showNotifications = useCallback(() => {
@@ -111,14 +104,9 @@ function Daily({ locationProps = 77, root }) {
   }, [notification]);
 
   const tick = useCallback(() => {
-    const clock = moment()
-      .tz("Europe/Sarajevo")
-      .format();
+    const clock = moment().tz("Europe/Sarajevo").format();
     const notifs = vaktija.map((v, i) =>
-      moment(v, "HH:mm")
-        .tz("Europe/Sarajevo")
-        .subtract(15, "m")
-        .format()
+      moment(v, "HH:mm").tz("Europe/Sarajevo").subtract(15, "m").format()
     );
     const nextVakatPosition = daily(localization()).vakat.map((v, i) => ({
       pos: i,
@@ -130,12 +118,8 @@ function Daily({ locationProps = 77, root }) {
     setCurrentMoment(moment().tz("Europe/Sarajevo"));
     setVaktija(daily(localization()).vakat);
     setDate([
-      moment()
-        .tz("Europe/Sarajevo")
-        .format("ddd, D. MMMM"),
-      moment()
-        .tz("Europe/Sarajevo")
-        .format("YYYY"),
+      moment().tz("Europe/Sarajevo").format("ddd, D. MMMM"),
+      moment().tz("Europe/Sarajevo").format("YYYY"),
       momentHijri()
         .tz("Europe/Sarajevo")
         .format("iD. iMMMM iYYYY")
@@ -181,13 +165,10 @@ function Daily({ locationProps = 77, root }) {
       cookies.set("location", locationProps, {
         path: "/",
         domain: ".vaktija.ba",
-        expires: moment()
-          .add(1, "y")
-          .tz("Europe/Sarajevo")
-          .toDate()
+        expires: moment().add(1, "y").tz("Europe/Sarajevo").toDate()
       });
     }
-    ReactGA.set({ title: `${locations[locationState]} · Vaktija` })
+    ReactGA.set({ title: `${locations[locationState]} · Vaktija` });
     ReactGA.pageview(window.location.pathname + window.location.search);
     // eslint-disable-next-line
   }, [locationProps, root]);
@@ -221,9 +202,9 @@ function Daily({ locationProps = 77, root }) {
           name="description"
           content={`Vaktija za ${locationsDative[locationState]}, ${date[0]} ${
             date[1]
-            } / ${date[2]}${vakatNames.map(
-              (vakatName, index) => ` ${vakatName} ${vaktija[index]}`
-            )}. Preuzmite oficijelne Android, iOS (iPhone, iPad) i Windows mobilne aplikacije, namaz, salat, džuma, sehur, ramazan, iftar, teravija, takvim, bosna i hercegovina, sandžak`}
+          } / ${date[2]}${vakatNames.map(
+            (vakatName, index) => ` ${vakatName} ${vaktija[index]}`
+          )}. Preuzmite oficijelne Android, iOS (iPhone, iPad) i Windows mobilne aplikacije, namaz, salat, džuma, sehur, ramazan, iftar, teravija, takvim, bosna i hercegovina, sandžak`}
         />
         <meta
           name="theme-color"
@@ -240,7 +221,7 @@ function Daily({ locationProps = 77, root }) {
         interaction="true"
         onClick={event => handleClick(event)}
       />
-      <Grid>
+      <Container>
         <Row>
           <Col className="text-left" xs={6} sm={6} md={6} lg={6}>
             <Link aria-label="Home" to="/">
@@ -252,13 +233,13 @@ function Daily({ locationProps = 77, root }) {
                   alt="vaktija.ba"
                 />
               ) : (
-                  <IconLight
-                    height="32"
-                    width="32"
-                    className="brand"
-                    alt="vaktija.ba"
-                  />
-                )}
+                <IconLight
+                  height="32"
+                  width="32"
+                  className="brand"
+                  alt="vaktija.ba"
+                />
+              )}
             </Link>
           </Col>
           <Col className="text-right" xs={6} sm={6} md={6} lg={6}>
@@ -317,13 +298,12 @@ function Daily({ locationProps = 77, root }) {
         <Row>
           <Col className="text-center" xs={12} sm={12} md={12} lg={12}>
             <br />
-            <br />
             <Stores theme={theme} />
             <br />
             <Ads theme={theme} />
           </Col>
         </Row>
-      </Grid>
+      </Container>
       <Locations
         closeNav={closeNav}
         locations={locations}
