@@ -5,6 +5,7 @@ import slugify from "slugify";
 import { locations } from "./data/vaktija.json";
 import Daily from "./components/Daily";
 import Mobile from "./components/Mobile";
+import Faq from "./components/Faq";
 import ThemeContextProvider from "./contexts/ThemeContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <Daily root />} />
           <Route path="/mobile" render={() => <Mobile />} />
+          <Route exact path="/faq" component={Faq} />
           {locations.map(location => (
             <Route
               key={location}

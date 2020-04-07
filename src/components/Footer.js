@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import ReactGA from "react-ga";
 import "./Footer.css";
 
@@ -74,6 +75,25 @@ function Footer({ theme, toggleTheme }) {
                   size="1x"
                 />
               </a>
+              <Link
+                onClick={() =>
+                  ReactGA.event({
+                    category: "Link",
+                    action: "FAQ link clicked",
+                    label: "vaktija.ba/faq",
+                    nonInteraction: true
+                  })
+                }
+                className="links"
+                aria-label="FAQ"
+                to="faq"
+              >
+                <FontAwesomeIcon
+                  className={theme}
+                  icon={["fas", "question"]}
+                  size="1x"
+                />
+              </Link>
               <span
                 onClick={() =>
                   ReactGA.event({
