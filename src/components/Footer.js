@@ -1,16 +1,25 @@
 import React from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ReactGA from "react-ga";
 import "./Footer.css";
 
 function Footer({ theme, toggleTheme }) {
   return (
     <footer className="footer">
-      <Grid>
+      <Container>
         <Row>
           <Col className="text-center" xs={12} sm={12} md={12} lg={12}>
             <p className="icons">
               <a
+                onClick={() =>
+                  ReactGA.event({
+                    category: "Link",
+                    action: "Mailto clicked",
+                    label: "info",
+                    nonInteraction: true
+                  })
+                }
                 aria-label="Contact E-mail"
                 className="links"
                 target="_blank"
@@ -24,6 +33,14 @@ function Footer({ theme, toggleTheme }) {
                 />
               </a>
               <a
+                onClick={() =>
+                  ReactGA.event({
+                    category: "Link",
+                    action: "API link clicked",
+                    label: "api.vaktija.ba",
+                    nonInteraction: true
+                  })
+                }
                 aria-label="API"
                 className="links"
                 target="_blank"
@@ -37,6 +54,14 @@ function Footer({ theme, toggleTheme }) {
                 />
               </a>
               <a
+                onClick={() =>
+                  ReactGA.event({
+                    category: "Link",
+                    action: "GitHub link clicked",
+                    label: "github.com/vaktija",
+                    nonInteraction: true
+                  })
+                }
                 aria-label="GitHub"
                 className="links"
                 target="_blank"
@@ -49,8 +74,17 @@ function Footer({ theme, toggleTheme }) {
                   size="1x"
                 />
               </a>
-              {/* {"|"} */}
-              <span className="toggle-theme">
+              <span
+                onClick={() =>
+                  ReactGA.event({
+                    category: "Theme",
+                    action: "Toggle theme clicked",
+                    label: theme,
+                    nonInteraction: true
+                  })
+                }
+                className="toggle-theme"
+              >
                 {theme === "light" ? (
                   <FontAwesomeIcon
                     icon={["fas", "moon"]}
@@ -68,7 +102,7 @@ function Footer({ theme, toggleTheme }) {
             </p>
           </Col>
         </Row>
-      </Grid>
+      </Container>
     </footer>
   );
 }
